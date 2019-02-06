@@ -10,7 +10,7 @@ SELECT date
       ,SUM(imps*maxCpc)/SUM(imps) AS avg_bid
       ,SUM(commission)/SUM(cost) AS KPI
   FROM performance_by_affcode_device A
-  WHERE a.`campaign_id` IN(SELECT campaign_id FROM portfolio_members a WHERE portfolio_id=13 AND end_date IS NULL)
-  AND profile_id=408 AND a.`date`>CURDATE()-INTERVAL 240 DAY
+  WHERE a.`campaign_id` IN(SELECT campaign_id FROM portfolio_members a WHERE portfolio_id={portfolio_id} AND end_date IS NULL)
+  AND profile_id={profile_id} AND a.`date` BETWEEN '{from_date}' AND '{to_date}'
   AND device = 1
   GROUP BY date;
