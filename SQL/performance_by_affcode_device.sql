@@ -1,4 +1,5 @@
 SELECT date
+      ,profile_id
       ,SUM(a.`clicks`)AS clicks
       ,SUM(a.`cost`)/SUM(a.`clicks`) AS cpc
       ,SUM(cost) as cost
@@ -12,5 +13,5 @@ SELECT date
   FROM performance_by_affcode_device A
   WHERE a.`campaign_id` IN(SELECT campaign_id FROM portfolio_members a WHERE portfolio_id={portfolio_id} AND end_date IS NULL)
   AND profile_id={profile_id} AND a.`date` BETWEEN '{from_date}' AND '{to_date}'
-  AND device = 1
-  GROUP BY date;
+  GROUP BY date,
+           profile_id;
