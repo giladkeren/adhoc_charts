@@ -1,2 +1,3 @@
-# adhoc_charts
-Adhoc analysis usings jupyter notebook
+# cases management
+
+This repository design to help manage and analize cases in python 
